@@ -1,0 +1,14 @@
+{
+	"name": "eurocopa",
+	"version": "1.0.0",
+	"description": "",
+	"main": "servidor.js",
+	"author": "@PabloAcevedo_",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.14.2",
+		"express": "^4.13.4",
+        "mongodb":"^2.1.7",
+        "q": "^1.2.0"
+	}
+}

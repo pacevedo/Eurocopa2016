@@ -1,0 +1,14 @@
+<section name="Lista">
+	<div class="col-md-4" ng-repeat="grupo in $ctrl.grupos">
+    
+        <h2>Grupo {{grupo.nombre}}</h2>
+        <table class="table">
+            <tbody>
+                <tr ng-repeat="equipo in grupo.equipos" pav-equipo equipo="equipo">
+                </tr>
+            </tbody>
+        </table>
+        <div ng-repeat="partido in grupo.partidos" pav-partido partido="partido">
+        </div>
+    </div>
+</section>

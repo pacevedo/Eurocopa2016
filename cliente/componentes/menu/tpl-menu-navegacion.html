@@ -1,0 +1,14 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="navbar-inner">
+		<div class="container">
+			<ul class="nav navbar-nav">
+				<li ng-class="{ active: $ctrl.isActive('resultados') }">
+					<a ui-sref="resultados">Resultados</a>
+				</li>
+				<li ng-class="{ active: $ctrl.isActive('usuarios') }">
+					<a ui-sref="usuarios">Usuarios</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
