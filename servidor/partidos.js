@@ -14,6 +14,16 @@ var enrutar = function (app, ruta) {
                 .fail(function (err) {
                     respuesta.status(500).send(err);
                 });
+		})
+        .post(function (peticion, respuesta) {
+			var partido = peticion.body;
+			partidosData.inserting(partido)
+				.then(function (data) {
+					respuesta.status(201).json(partido);
+				})
+				.fail(function (err) {
+					respuesta.status(500).send(err);
+				});
 		});
 }
 

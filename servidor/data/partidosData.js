@@ -20,6 +20,8 @@ exports.findingByGrupo = function (grupo) {
           foreignField: "id",
           as: "equipoVisitante"
 		} 
+    },{
+        $sort: { fecha: 1}
     }]);
 }
 

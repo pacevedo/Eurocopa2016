@@ -11,6 +11,10 @@ exports.findingGrupos = function() {
     return mongodb.findingDistinct(mongoCol, {}, 'grupo');
 }
 
+exports.finding = function() {
+    return mongodb.finding(mongoCol, {});
+}
+
 exports.inserting = function (partido) {
 	return mongodb.inserting(mongoCol, partido);
 }

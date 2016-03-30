@@ -1,5 +1,5 @@
 (function () {
 
-	angular.module('estados', ['resultados', 'usuarios'])
+	angular.module('estados', ['resultados', 'usuarios','equipos', 'partidos'])
 
 }());
