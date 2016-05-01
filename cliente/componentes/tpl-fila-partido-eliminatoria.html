@@ -1,0 +1,12 @@
+<div class="col-sm-1">{{partido.id}}</div>
+<div class="col-sm-3">{{partido.fecha | date:'dd MMM HH:mm'}}</div>
+<div class="col-sm-3">
+    <span ng-if="partido.equipoLocal.nombre!=''">{{partido.equipoLocal.nombre}}</span>
+    <span ng-if="partido.equipoLocal.length==0">{{partido.textoLocal}}</span>
+</div>
+<div class="col-sm-1"> - </div>
+<div class="col-sm-3">
+    <span ng-if="partido.equipoVisitante.nombre!=''">{{partido.equipoVisitante.nombre}}</span>
+    <span ng-if="partido.equipoVisitante.length==0">{{partido.textoVisitante}}</span>
+</div>
+<div style="clear:both"></div>

@@ -1,3 +1,27 @@
 input[type="number"]{
     width: 30px;
 }
+.octavosPartidos{
+    border: 1px solid #ddd;
+    height: 20px;
+    width: 100%;    
+}
+.cuartosPartidos{
+    border: 1px solid #ddd;
+    height: 40px;
+    width: 100%;    
+}
+.semisPartidos{
+    border: 1px solid #ddd;
+    height: 80px;
+    width: 100%;    
+}
+.finalPartidos{
+    border: 1px solid #ddd;
+    height: 160px;
+    width: 100%;
+}
+.ronda{
+    float: left;
+    width: 12.5%;
+}

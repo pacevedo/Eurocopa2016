@@ -1,7 +1,7 @@
 <div style="clear:both">{{partido.fecha | date:'dd MMM HH:mm'}}</div>
 <div class="col-sm-1"><img src="{{partido.equipoLocal[0].logoPeq}}"/></div>
-<div class="text-right col-sm-3">{{partido.equipoLocal[0].nombre}}</div>
-<div class="goles col-sm-1"><input type="number"/></div>
-<div class="goles col-sm-1"><input type="number"/></div>
+<div class="text-left col-sm-3">{{partido.equipoLocal[0].nombre}}</div>
+<div class="goles col-sm-1"><input type="number" min="0" ng-model="partido.golesLocal" ng-blur="calculaClasificacion($parent.grupo, $parent.$ctrl.grupos)"/></div>
+<div class="goles col-sm-1"><input type="number" min="0" ng-model="partido.golesVisitante" ng-blur="calculaClasificacion($parent.grupo, $parent.$ctrl.grupos)"/></div>
 <div class="text-right col-sm-3">{{partido.equipoVisitante[0].nombre}}</div>
 <div class="col-sm-1"><img src="{{partido.equipoVisitante[0].logoPeq}}"/></div>

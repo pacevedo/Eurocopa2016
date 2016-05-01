@@ -1,19 +1,142 @@
 <section name="Lista">
-	<div class="col-md-6" ng-repeat="grupo in $ctrl.grupos">
-    
-        <h2>Grupo {{grupo.nombre}}</h2>
-        
-        <div ng-repeat="partido in grupo.partidos" pav-partido partido="partido">
-        </div>
-        <br/>
-        <div class="row-fluid">
-            <h3>Clasificación</h3>
-            <table class="table">
-                <tbody>
-                    <tr ng-repeat="equipo in grupo.equipos" pav-equipo equipo="equipo">
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div class="col-md-5">
+        <script type="text/ng-template" id="group-template.html">
+            <div class="panel {{panelClass || 'panel-default'}}">
+            <div class="panel-heading">
+                <h4 class="panel-title" style="color:#fa39c3">
+                <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" uib-accordion-transclude="heading"><span>{{heading}}</span></a>
+                </h4>
+            </div>
+            <div class="panel-collapse collapse" uib-collapse="!isOpen">
+                <div class="panel-body" style="text-align: right" ng-transclude></div>
+            </div>
+            </div>
+        </script>
+        <uib-accordion close-others="true">
+            <uib-accordion-group heading="Grupo {{grupo.nombre}}" ng-repeat="grupo in $ctrl.grupos">
+                <div ng-repeat="partido in grupo.partidos" pav-partido partido="partido">
+                </div>
+                <br/>
+                <div class="row-fluid">
+                    <h3>Clasificación</h3>
+                    <table class="table">
+                        <thead>
+                            <td></td>
+                            <td></td>
+                            <td>Jug</td>
+                            <td>GF</td>
+                            <td>GC</td>
+                            <td>Ptos</td>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="equipo in grupo.equipos | orderBy:$ctrl.campo" pav-equipo equipo="equipo" ng>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </uib-accordion-group>
+        </uib-accordion>
+    </div>
+    <div class="col-md-7">
+        <uib-accordion close-others="true">
+            <uib-accordion-group heading="Eliminatorias" is-open="true" is-disabled="true">
+                <div class="ronda" id="octavosAlta">
+                    <div class="octavosEliminatorias" ng-repeat="octavo in $ctrl.octavosAlta">
+                        <div class="octavosPartidos">
+                            <span ng-if="octavo.equipoLocal.logoPeq!=''"><img src="{{octavo.equipoLocal.logoPeq}}"/></span>
+                            <span ng-if="octavo.equipoLocal.length==0">{{octavo.textoLocal}}</span>
+                        </div>
+                        <div class="octavosPartidos">
+                            <span ng-if="octavo.equipoVisitante.logoPeq!=''"><img src="{{octavo.equipoVisitante.logoPeq}}"/></span>
+                            <span ng-if="octavo.equipoVisitante.length==0">{{octavo.textoVisitante}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="cuartosAlta">
+                    <div class="cuartosEliminatorias" ng-repeat="cuarto in $ctrl.cuartosAlta">
+                        <div class="cuartosPartidos">
+                            
+                        </div>
+                        <div class="cuartosPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="semisAlta">
+                    <div class="semisEliminatorias" ng-repeat="semi in $ctrl.semisAlta">
+                        <div class="semisPartidos">
+                            
+                        </div>
+                        <div class="semisPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="finalAlta">
+                    <div class="finalEliminatorias" ng-repeat="final in $ctrl.final">
+                        <div class="finalPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="finalBaja">
+                    <div class="finalEliminatorias" ng-repeat="final in $ctrl.final">
+                        <div class="finalPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="semisBaja">
+                    <div class="semisEliminatorias" ng-repeat="semi in $ctrl.semisBaja">
+                        <div class="semisPartidos">
+                            
+                        </div>
+                        <div class="semisPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="cuartosBaja">
+                    <div class="cuartosEliminatorias" ng-repeat="cuarto in $ctrl.cuartosBaja">
+                        <div class="cuartosPartidos">
+                            
+                        </div>
+                        <div class="cuartosPartidos">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="ronda" id="octavosBaja">
+                    <div class="octavosEliminatorias" ng-repeat="octavo in $ctrl.octavosBaja">
+                        <div class="octavosPartidos">
+                            <span ng-if="octavo.equipoLocal.logoPeq!=''"><img src="{{octavo.equipoLocal.logoPeq}}"/></span>
+                            <span ng-if="octavo.equipoLocal.length==0">{{octavo.textoLocal}}</span>
+                        </div>
+                        <div class="octavosPartidos">
+                            <span ng-if="octavo.equipoVisitante.logoPeq!=''"><img src="{{octavo.equipoVisitante.logoPeq}}"/></span>
+                            <span ng-if="octavo.equipoVisitante.length==0">{{octavo.textoVisitante}}</span>
+                        </div>
+                    </div>
+                </div>
+            </uib-accordion-group>
+        </uib-accordion>
+        <uib-accordion close-others="false" >
+            <uib-accordion-group heading="Octavos de final" is-open="true" is-disabled="true">
+                <div ng-repeat="partido in $ctrl.octavos" pav-partido-eliminatoria partido="partido">
+                </div>
+           </uib-accordion-group>     
+            <uib-accordion-group heading="Cuartos de final" is-open="true" is-disabled="true">
+                <div ng-repeat="partido in $ctrl.cuartos" pav-partido-eliminatoria partido="partido">
+                </div>
+           </uib-accordion-group>     
+            <uib-accordion-group heading="Semifinales" is-open="true" is-disabled="true">
+                <div ng-repeat="partido in $ctrl.semis" pav-partido-eliminatoria partido="partido">
+                </div>
+           </uib-accordion-group>     
+            <uib-accordion-group heading="Final" is-open="true" is-disabled="true">
+                <div ng-repeat="partido in $ctrl.final" pav-partido-eliminatoria partido="partido">
+                </div>
+           </uib-accordion-group>     
+        </uib-accordion>
     </div>
 </section>
